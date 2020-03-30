@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ScheduleXamarin"
+             xmlns:schedule="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms"
+             x:Class="ScheduleXamarin.MainPage">
+
+    <ContentPage.Content>
+    <Grid>
+       <schedule:SfSchedule x:Name="Schedule"
+                                 ScheduleView="WeekView"
+                                 DataSource="{Binding Meetings}"
+                                 Margin="0">
+
+                <schedule:SfSchedule.DayViewSettings>
+                    <schedule:DayViewSettings>
+                        <schedule:DayViewSettings.DayLabelSettings>
+                            <schedule:DayLabelSettings TimeFormat="hh:mm"/>
+                        </schedule:DayViewSettings.DayLabelSettings>
+                    </schedule:DayViewSettings>
+                </schedule:SfSchedule.DayViewSettings>
+
+                <schedule:SfSchedule.WeekViewSettings>
+                    <schedule:WeekViewSettings>
+                        <schedule:WeekViewSettings.WeekLabelSettings>
+                           <schedule:WeekLabelSettings TimeFormat="hh:mm"/>
+                        </schedule:WeekViewSettings.WeekLabelSettings>
+                    </schedule:WeekViewSettings>
+                </schedule:SfSchedule.WeekViewSettings>
+
+               <schedule:SfSchedule.WorkWeekViewSettings>
+                    <schedule:WorkWeekViewSettings>
+                        <schedule:WorkWeekViewSettings.WorkWeekLabelSettings>
+                            <schedule:WorkWeekLabelSettings TimeFormat="hh:mm"/>
+                        </schedule:WorkWeekViewSettings.WorkWeekLabelSettings>
+                    </schedule:WorkWeekViewSettings>
+                </schedule:SfSchedule.WorkWeekViewSettings>
+
+                <schedule:SfSchedule.TimelineViewSettings>
+                    <schedule:TimelineViewSettings>
+                        <schedule:TimelineViewSettings.LabelSettings>
+                            <schedule:TimelineLabelSettings TimeFormat="hh:mm"/>
+                        </schedule:TimelineViewSettings.LabelSettings>
+                    </schedule:TimelineViewSettings>
+                </schedule:SfSchedule.TimelineViewSettings>
+
+                <schedule:SfSchedule.AppointmentMapping>
+                <schedule:ScheduleAppointmentMapping
+                        ColorMapping="Color"
+                        EndTimeMapping="To"
+                        StartTimeMapping="From"
+                        SubjectMapping="EventName"
+                        />
+            </schedule:SfSchedule.AppointmentMapping>
+
+            <schedule:SfSchedule.BindingContext>
+                <local:SchedulerViewModel/>
+            </schedule:SfSchedule.BindingContext>
+        </schedule:SfSchedule>
+    </Grid>
+         </ContentPage.Content>
+</ContentPage>
